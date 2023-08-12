@@ -56,15 +56,31 @@
 		148683632A87757200C4E06B /* RickAndMorty */ = {
 			isa = PBXGroup;
 			children = (
-				148683642A87757200C4E06B /* AppDelegate.swift */,
-				148683662A87757200C4E06B /* SceneDelegate.swift */,
+				148683792A87759400C4E06B /* Resources */,
+				148683782A87757E00C4E06B /* Application */,
 				148683682A87757200C4E06B /* ViewController.swift */,
 				1486836A2A87757200C4E06B /* Main.storyboard */,
-				1486836D2A87757400C4E06B /* Assets.xcassets */,
-				1486836F2A87757400C4E06B /* LaunchScreen.storyboard */,
-				148683722A87757400C4E06B /* Info.plist */,
 			);
 			path = RickAndMorty;
+			sourceTree = "<group>";
+		};
+		148683782A87757E00C4E06B /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				148683662A87757200C4E06B /* SceneDelegate.swift */,
+				148683642A87757200C4E06B /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		148683792A87759400C4E06B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				148683722A87757400C4E06B /* Info.plist */,
+				1486836F2A87757400C4E06B /* LaunchScreen.storyboard */,
+				1486836D2A87757400C4E06B /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,7 +304,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RickAndMorty/Info.plist;
+				INFOPLIST_FILE = RickAndMorty/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -315,7 +331,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RickAndMorty/Info.plist;
+				INFOPLIST_FILE = RickAndMorty/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
