@@ -10,7 +10,7 @@ import Foundation
 /// Object that represents a single API call
 final class RMRequest {
     
-    /// <#Description#>
+    /// API constants
     private struct Constants {
         static let baseUrl = "https://rickandmortyapi.com/api"
     }
