@@ -11,7 +11,7 @@ import Foundation
 struct RMCharacter: Codable {
     let id: Int
     let name, species, type: String
-    let status: RMCaracterStatus
+    let status: RMCharacterStatus
     let gender: RMCharacterGender
     let origin: RMOrigin
     let location: RMSingleLocation
