@@ -16,6 +16,25 @@ enum RMSettingsOption: CaseIterable {
     case viewSeries
     case viewCode
     
+    var targetUrl: URL? {
+        switch self {
+        case .rateApp:
+            return nil
+        case .contactUs:
+            return URL(string: "https://t.me/virtbrain")
+        case .terms:
+            return URL(string: "https://t.me/virtbrain")
+        case .privacy:
+            return URL(string: "https://t.me/virtbrain")
+        case .apiReference:
+            return URL(string: "https://rickandmortyapi.com/documentation/")
+        case .viewSeries:
+            return URL(string: "https://www.youtube.com/watch?v=EZpZDuOAFKE&list=PL5PR3UyfTWvdl4Ya_2veOB6TM16FXuv4y")
+        case .viewCode:
+            return URL(string: "https://github.com/Virtbrain/RickAndMorty")
+        }
+    }
+    
     var displayTitle: String {
         switch self {
         case .rateApp:
