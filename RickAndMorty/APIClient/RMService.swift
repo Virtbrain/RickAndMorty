@@ -38,7 +38,6 @@ final class RMService {
         ) {
             do {
                 let result = try JSONDecoder().decode(type.self, from: cachedData)
-                print("Using cached API Response")
                 completion(.success(result))
             }
             catch {
