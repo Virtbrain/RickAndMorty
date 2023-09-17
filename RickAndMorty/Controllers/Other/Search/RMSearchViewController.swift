@@ -22,6 +22,22 @@ final class RMSearchViewController: UIViewController {
             case episode //allow names
             case location //allow name | type
             
+            var endpoint: RMEndpoint {
+                switch self {
+                case .character: return .character
+                case .episode: return .episode
+                case .location: return .location
+                }
+            }
+            
+            var searchResultResponseType: Codable.Type {
+                switch self {
+                case .character: return RMGetAllCharactersResponse.self
+                case .episode: return RMGetAllEpisodesResponse.self
+                case .location: return RMGetAllLocationsResponse.self
+                }
+            }
+            
             var title: String {
                 switch self {
                 case .character:
@@ -48,6 +64,7 @@ final class RMSearchViewController: UIViewController {
         self.viewModel = viewModel
         self.searchView = RMSearchView(frame: .zero, viewModel: viewModel)
         super.init(nibName: nil, bundle: nil)
+        searchView.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -66,9 +83,14 @@ final class RMSearchViewController: UIViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        searchView.presentKeyboard()
+    }
+    
     @objc
     private func didTapExecuteSearch() {
-//        viewModel.executeSearch()
+        viewModel.executeSearch()
     }
     
     private func addConstraints() {
@@ -78,5 +100,19 @@ final class RMSearchViewController: UIViewController {
             searchView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
             searchView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+}
+
+//MARK: - RMSearchViewControllerDelegate
+extension RMSearchViewController: RMSearchViewDelegate {
+    func rmSearchView(_ searchView: RMSearchView, didSelectOption option: RMSearchInputViewViewModel.DynamicOption) {
+        let vc = RMSearchOptionPickerViewController(option: option) { [weak self] selection in
+            DispatchQueue.main.async {
+                self?.viewModel.set(value: selection, for: option)
+            }
+        }
+        vc.sheetPresentationController?.detents = [.medium()]
+        vc.sheetPresentationController?.prefersGrabberVisible = true
+        present(vc, animated: true)
     }
 }
