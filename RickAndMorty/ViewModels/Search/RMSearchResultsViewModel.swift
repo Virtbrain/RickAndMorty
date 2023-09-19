@@ -53,6 +53,15 @@ final class RMSearchResultViewModel {
                 
                 var newResults: [RMLocationTableViewCellViewModel] = []
                 
+                switch strongSelf.results {
+                case .location(let existingResults):
+                    newResults = existingResults + additionalLocations
+                    strongSelf.results = .location(newResults)
+                    break
+                case .characters, .episodes:
+                    break
+                }
+                
                 DispatchQueue.main.async {
                     strongSelf.isLoadingMoreResults = false
                     //Notify via callback
