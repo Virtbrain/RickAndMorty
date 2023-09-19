@@ -72,7 +72,6 @@ final class RMLocationViewViewModel {
             case .success(let responseModel):
                 let moreResults = responseModel.results
                 let info = responseModel.info
-                print("More locations: \(moreResults.count)")
                 strongSelf.apiInfo = info
                 strongSelf.cellViewModels.append(contentsOf: moreResults.compactMap({
                     return RMLocationTableViewCellViewModel(location: $0)
